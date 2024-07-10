@@ -2,6 +2,8 @@ from pathlib import Path
 
 from selene import browser, have
 
+from tests.conftest import setup_browser
+
 
 class RegistrationForm:
     def open(self):
