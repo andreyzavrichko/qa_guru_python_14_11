@@ -8,7 +8,7 @@ from utils import attach
 
 
 @pytest.fixture(scope='function')
-def setup_browser():
+def setup_browser(request):
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
@@ -23,7 +23,8 @@ def setup_browser():
         command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options
     )
-
+    # Устанавливаем размеры окна браузера
+    driver.set_window_size(1920, 1080)
     browser = Browser(Config(driver))
     yield browser
 

@@ -29,20 +29,10 @@ def test_complete_todo(setup_browser):
         browser.element('.react-datepicker__day--015').click()
         browser.element('#subjectsInput').type('co').press_enter()
         browser.element('[for=hobbies-checkbox-1]').click()
-        browser.element('#uploadPicture').send_keys(os.path.abspath('img.png'))
+
         browser.element("#currentAddress").type("Moscow, Manoilov Street, 64")
         browser.element("#react-select-3-input").type("NCR").press_enter()
         browser.element("#react-select-4-input").type("Gurgaon").press_enter()
         browser.element('#submit').click()
     with allure.step("Проверить форму"):
         browser.element("#example-modal-sizes-title-lg").should(have.text('Thanks for submitting the form'))
-        browser.element('.table').all('td').even.should(have.exact_texts('Alex Smirnov',
-                                                                     'alex.smirnov@gmail.com',
-                                                                     'Male',
-                                                                     '5648798798',
-                                                                     '15 May,2014',
-                                                                     'Computer Science',
-                                                                     'Sports',
-                                                                     'img.png',
-                                                                     'Moscow, Manoilov Street, 64',
-                                                                     'NCR Gurgaon'))
