@@ -9,7 +9,7 @@ from pages.form_page import RegistrationForm
 @allure.label("owner", "Аркадий Укупник")
 @allure.feature("Регистрация")
 @allure.story("Проверка заполнения формы регистрации")
-def test_complete_todo():
+def test_complete_todo(setup_browser):
     registration_form = RegistrationForm()
     with allure.step("Открываем главную страницу"):
         registration_form.open()
