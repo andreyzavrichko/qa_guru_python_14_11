@@ -20,6 +20,7 @@ def test_complete_todo(setup_browser):
         browser.element('#userEmail').type('alex.smirnov@gmail.com')
         browser.element('.custom-control-label').click()
         browser.element('#userNumber').type('5648798798')
+        browser.element('#uploadPicture').send_keys(str(Path(__file__).parent.parent.joinpath(f'resources/img.png')))
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').click()
         browser.element('.react-datepicker__month-select').element(
@@ -29,7 +30,6 @@ def test_complete_todo(setup_browser):
         browser.element('.react-datepicker__day--015').click()
         browser.element('#subjectsInput').type('co').press_enter()
         browser.element('[for=hobbies-checkbox-1]').click()
-        browser.element('#uploadPicture').send_keys(str(Path(__file__).parent.parent.joinpath(f'resources/img.png')))
         browser.element("#currentAddress").type("Moscow, Manoilov Street, 64")
         browser.element("#react-select-3-input").type("NCR").press_enter()
         browser.element("#react-select-4-input").type("Gurgaon").press_enter()
