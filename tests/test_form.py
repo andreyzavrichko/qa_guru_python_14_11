@@ -34,7 +34,7 @@ def test_complete_todo(setup_browser):
             '[value="4"]').click()
         browser.element('.react-datepicker__year-select').click()
         browser.element('.react-datepicker__year-select').element('[value="2014"]').click()
-        browser.element('.react-datepicker__day--015').click()
+        browser.element('.react-datepicker__day--011').click()
     with allure.step("Заполнить темы"):
         browser.element('#subjectsInput').type('co').press_enter()
     with allure.step("Заполнить хобби"):
@@ -51,7 +51,7 @@ def test_complete_todo(setup_browser):
                                                                          'alex.smirnov@gmail.com',
                                                                          'Male',
                                                                          '5648798798',
-                                                                         '15 May,2014',
+                                                                         '11 May,2014',
                                                                          'Computer Science',
                                                                          'Sports',
                                                                          'img.png',
