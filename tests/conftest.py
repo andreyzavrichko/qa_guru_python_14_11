@@ -1,8 +1,7 @@
 import pytest
-
+from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selene import Browser, Config
 
 from utils import attach
 
@@ -23,9 +22,11 @@ def setup_browser(request):
         command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options
     )
-    # Устанавливаем размеры окна браузера
-    driver.set_window_size(1920, 1080)
-    browser = Browser(Config(driver))
+
+    browser.config.window_width = 1920
+    browser.config.window_height = 1080
+    browser.config.base_url = 'https://demoqa.com/'
+    browser.config.driver = driver
     yield browser
 
     attach.add_screenshot(browser)
